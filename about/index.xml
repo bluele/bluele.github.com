@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on Jun Kimura</title>
+    <link>https://bluele.github.io/about/</link>
+    <description>Recent content in About on Jun Kimura</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sun, 13 Mar 2016 02:34:33 +0900</lastBuildDate>
+    <atom:link href="https://bluele.github.io/about/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>About me</title>
+      <link>https://bluele.github.io/about/</link>
+      <pubDate>Sun, 13 Mar 2016 02:34:33 +0900</pubDate>
+      
+      <guid>https://bluele.github.io/about/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;http://www.m0mentum.co.jp/&#34;&gt;Momentum株式会社&lt;/a&gt;で取締役CTOとして、アドフラウド、アドベリフィケーション等のアドテクノロジー分野の開発に携わっています。
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;普段Linux, OSX上でのGolang(Go)、Python、JavaScript等の言語での開発を中心にしており、
+また、Github上でいくつか&lt;a href=&#34;https://github.com/bluele?tab=repositories&#34;&gt;OSSライブラリの開発&lt;/a&gt;を行っております。
+&lt;br /&gt;
+&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;このブログでは、技術的トピックや成果物について扱う予定です。&lt;/p&gt;
+
+&lt;p&gt;よろしくお願いいたします。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

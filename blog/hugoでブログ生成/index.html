@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JUN KIMURA BLOG">
+
+<base href="https://bluele.github.io/">
+<title>
+
+
+     Hugoでブログ生成 
+
+</title>
+<link rel="canonical" href="https://bluele.github.io/blog/hugo%E3%81%A7%E3%83%96%E3%83%AD%E3%82%B0%E7%94%9F%E6%88%90/">
+
+
+<script type="text/javascript">
+    var baseURL = 'https:\/\/bluele.github.io\/';
+    var host = baseURL.substring(0, baseURL.length - 1).replace(/\//g, '');
+    if ((host === window.location.host) && (window.location.protocol !== 'https:')) {
+        window.location.protocol = 'https:';
+    }
+</script>
+
+
+
+
+
+<link rel="stylesheet" href="https://bluele.github.io/css/reset.css">
+<link rel="stylesheet" href="https://bluele.github.io/css/pygments.css">
+<link rel="stylesheet" href="https://bluele.github.io/css/main.css">
+
+
+    <link rel="stylesheet" href="https://bluele.github.io/css/override.css">
+
+
+
+
+
+<link rel="shortcut icon"
+
+    href="https://bluele.github.io/img/leaf.ico"
+
+>
+
+
+
+</head>
+
+
+<body lang="en">
+
+<section class="header"> 
+    <div class="container">
+        <div class="content">
+            <a href="https://bluele.github.io/"><div class="name">JUN KIMURA</div></a>
+            <nav>
+                <ul>
+                    <a href="https://bluele.github.io/blog/"><li>Blog</li></a>
+                    <a href="https://bluele.github.io/about/"><li>About</li></a>
+                    <a href="https://bluele.github.io/code/"><li>Code</li></a>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>
+
+<section class="icons">
+    <div class="container">
+        <div class="content">
+
+        
+            <a href="//github.com/bluele" target="_blank">
+                <i class="icon ion-social-github"></i>
+            </a>
+        
+        
+        
+            <a href="//twitter.com/bluele_jp" target="_blank">
+                <i class="icon ion-social-twitter"></i>
+            </a>
+        
+
+        
+            <a href="//www.linkedin.com/in/jun-kimura-5a969352" target="_blank">
+                <i class="icon ion-social-linkedin"></i>
+            </a>
+        
+
+        
+            <a href="//facebook.com/jkimura0818" target="_blank">
+                <i class="icon ion-social-facebook larger"></i>
+            </a>
+        
+
+        
+
+        
+            <a href="mailto:junkxdev@gmail.com">
+                <i class="icon ion-ios-email larger"></i>
+            </a>
+        
+        </div>
+    </div>
+</section>
+
+
+<section class="main post non-narrow zero-top-spacing">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    Hugoでブログ生成
+
+</div>
+
+                    <div class="initials"><a href="https://bluele.github.io/">ad</a></div>
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sun Mar 13 2016 03:29:53 JST">Mar 13, 2016</div>
+                    <div class="reading-time"><div class="middot"></div>2 minutes read</div>
+                </div>
+            </div>
+            <div class="markdown">
+                
+
+<p><a href="https://gohugo.io/">Hugo</a>とテーマ<a href="https://github.com/nishanths/cocoa-hugo-theme">cocoa</a>を用いてブログ生成を行う。</p>
+
+<h2 id="hugoのインストール:06e3276c8a44b9163745f4e814816f07">Hugoのインストール</h2>
+
+<p>Hugoは<code>go get</code>でインストール可能。かなり簡単。</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>go get -u -v github.com/spf13/hugo
+<span class="nv">$ </span>hugo version
+Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-04T02:08:16+09:00
+</code></pre></div>
+
+
+<h2 id="blogの生成:06e3276c8a44b9163745f4e814816f07">Blogの生成</h2>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">pwd</span>
+/Users/junk/blog/hugo
+<span class="nv">$ </span>hugo new site mysite
+Congratulations! Your new Hugo site is created in <span class="s2">&quot;/Users/junk/blog/hugo/mysite&quot;</span>.
+<span class="nv">$ </span>ls mysite
+archetypes  config.toml content     data        layouts     static      themes
+</code></pre></div>
+
+
+<h2 id="テーマのインストール:06e3276c8a44b9163745f4e814816f07">テーマのインストール</h2>
+
+<p>Hugoのテーマは <a href="http://themes.gohugo.io/">http://themes.gohugo.io/</a> 上にまとまっており、この中で気に入ったものを選択する。</p>
+
+<p>テーマのセットアップは、作成したプロジェクト内のthemesディレクトリ内にthemeディレクトリを配置することで利用する。</p>
+
+<p>今回、<a href="https://github.com/nishanths/cocoa-hugo-theme">cocoa</a>を利用した。</p>
+
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git clone https://github.com/nishanths/cocoa-hugo-theme.git themes/cocoa
+</code></pre></div>
+
+
+<h2 id="設定ファイル:06e3276c8a44b9163745f4e814816f07">設定ファイル</h2>
+
+<p>今回はcocoaを利用しているため、cocoaの<a href="https://github.com/nishanths/cocoa-hugo-theme/blob/master/exampleSite/config.toml">設定ファイル例</a>をベースにすすめる。</p>
+
+<p>ブログのタイトル・説明、SNS系・GAのリンクなどは設定ファイル上で編集する。
+以下、設定例。</p>
+
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">baseurl</span> <span class="o">=</span> <span class="s2">&quot;https://you.github.io/&quot;</span> <span class="c"># TODO</span>
+<span class="nv">builddrafts</span> <span class="o">=</span> <span class="nb">false</span>
+<span class="nv">canonifyurls</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">contentdir</span> <span class="o">=</span> <span class="s2">&quot;content&quot;</span>
+<span class="nv">languageCode</span> <span class="o">=</span> <span class="s2">&quot;en-US&quot;</span>
+<span class="nv">layoutdir</span> <span class="o">=</span> <span class="s2">&quot;layouts&quot;</span>
+<span class="nv">publishdir</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span>
+<span class="nv">author</span> <span class="o">=</span> <span class="s2">&quot;Arthur Dent&quot;</span>
+<span class="nv">title</span> <span class="o">=</span> <span class="s2">&quot;Arthur Dent&quot;</span>
+<span class="nv">pygmentsuseclasses</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">disqusShortname</span> <span class="o">=</span> <span class="s2">&quot;cocoaexamplesite&quot;</span> <span class="c"># TODO: optional, comment out to disable Disqus</span>
+<span class="nv">pluralizelisttitles</span> <span class="o">=</span> <span class="nb">false</span>
+
+<span class="o">[</span>permalinks<span class="o">]</span>
+<span class="nv">fixed</span> <span class="o">=</span> <span class="s2">&quot;:title/&quot;</span>
+<span class="nv">blog</span> <span class="o">=</span> <span class="s2">&quot;blog/:slug/&quot;</span>
+
+<span class="o">[</span>params<span class="o">]</span>
+<span class="nv">Author</span> <span class="o">=</span> <span class="s2">&quot;Arthur Dent&quot;</span>
+<span class="nv">CacheBuster</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">DateForm</span> <span class="o">=</span> <span class="s2">&quot;Jan 2, 2006&quot;</span>
+<span class="nv">DateFormFull</span> <span class="o">=</span> <span class="s2">&quot;Mon Jan 2 2006 15:04:05 MST&quot;</span>
+<span class="nv">Description</span> <span class="o">=</span> <span class="s2">&quot;Don&#39;t panic&quot;</span>
+<span class="nv">Email</span> <span class="o">=</span> <span class="s2">&quot;you@example.space&quot;</span> <span class="c"># TODO:</span>
+<span class="nv">FaviconFile</span> <span class="o">=</span> <span class="s2">&quot;img/leaf.ico&quot;</span>
+<span class="nv">GATracker</span> <span class="o">=</span> <span class="s2">&quot;XYZ&quot;</span> <span class="c"># TODO:</span>
+<span class="nv">GitHub</span> <span class="o">=</span> <span class="s2">&quot;//github.com/you&quot;</span> <span class="c"># TODO:</span>
+<span class="nv">Initials</span> <span class="o">=</span> <span class="s2">&quot;ad&quot;</span> <span class="c"># displayed on single post page; DEPRECATED in v0.3.0</span>
+<span class="nv">Lang</span> <span class="o">=</span> <span class="s2">&quot;en&quot;</span>
+<span class="nv">LinkedIn</span> <span class="o">=</span> <span class="s2">&quot;//linkedin.com/in/you&quot;</span> <span class="c"># TODO:</span>
+<span class="nv">Twitter</span> <span class="o">=</span> <span class="s2">&quot;//twitter.com/you&quot;</span> <span class="c"># TODO:</span>
+<span class="nv">ExtraCssFiles</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&quot;/css/override.css&quot;</span> <span class="o">]</span> <span class="c"># relative to public directory</span>
+</code></pre></div>
+</p>
+
+<h2 id="記事の作成:06e3276c8a44b9163745f4e814816f07">記事の作成</h2>
+
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>hugo new blog/example.md
+/Users/junk/blog/hugo/mysite/content/blog/example.md created
+
+<span class="c"># 編集</span>
+<span class="nv">$ </span>vim blog/example.md
++++
+<span class="nv">date</span> <span class="o">=</span> <span class="s2">&quot;2016-03-13T12:56:34+09:00&quot;</span>
+<span class="nv">draft</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="nv">title</span> <span class="o">=</span> <span class="s2">&quot;example&quot;</span>
+
++++
+
+こんにちは
+</code></pre></div>
+</p>
+
+<h2 id="プレビュー:06e3276c8a44b9163745f4e814816f07">プレビュー</h2>
+
+<p>プレビューは<code>hugo server</code>コマンドで行う。
+記事の作成と編集をしただけだとdraft状態となっているため、<code>hugo undraft content/blog/example.md</code> を行う必要がある。
+しかし、<code>--buildDrafts</code>オプションを付与すると、draft状態の記事も表示可能となる。</p>
+
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>hugo server --buildDrafts
+</code></pre></div>
+</p>
+
+<h2 id="公開:06e3276c8a44b9163745f4e814816f07">公開</h2>
+
+<p><code>public/</code>以下だけを公開対象にすればOK。</p>
+
+                <br>
+                <p><a href="https://bluele.github.io/blog/">Back to posts</a></p>
+            </div>
+            <br>
+            <div class="disqus">
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+    var pageTracker = _gat._getTracker("XYZ");
+    pageTracker._trackPageview();
+} catch(err) {}
+</script>
+
+
+
+</body>
+</html>
+
