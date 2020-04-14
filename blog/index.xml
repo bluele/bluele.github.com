@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Jun Kimura</title>
@@ -7,7 +7,9 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Sun, 13 Mar 2016 03:29:53 +0900</lastBuildDate>
-    <atom:link href="https://bluele.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+	<atom:link href="https://bluele.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    
     
     <item>
       <title>Hugoでブログ生成</title>
@@ -15,117 +17,14 @@
       <pubDate>Sun, 13 Mar 2016 03:29:53 +0900</pubDate>
       
       <guid>https://bluele.github.io/blog/hugo%E3%81%A7%E3%83%96%E3%83%AD%E3%82%B0%E7%94%9F%E6%88%90/</guid>
-      <description>
-
-&lt;p&gt;&lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;とテーマ&lt;a href=&#34;https://github.com/nishanths/cocoa-hugo-theme&#34;&gt;cocoa&lt;/a&gt;を用いてブログ生成を行う。&lt;/p&gt;
-
-&lt;h2 id=&#34;hugoのインストール:06e3276c8a44b9163745f4e814816f07&#34;&gt;Hugoのインストール&lt;/h2&gt;
-
-&lt;p&gt;Hugoは&lt;code&gt;go get&lt;/code&gt;でインストール可能。かなり簡単。&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;go get -u -v github.com/spf13/hugo
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;hugo version
-Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-04T02:08:16+09:00
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id=&#34;blogの生成:06e3276c8a44b9163745f4e814816f07&#34;&gt;Blogの生成&lt;/h2&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;&lt;span class=&#34;nb&#34;&gt;pwd&lt;/span&gt;
-/Users/junk/blog/hugo
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;hugo new site mysite
-Congratulations! Your new Hugo site is created in &lt;span class=&#34;s2&#34;&gt;&amp;quot;/Users/junk/blog/hugo/mysite&amp;quot;&lt;/span&gt;.
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;ls mysite
-archetypes  config.toml content     data        layouts     static      themes
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id=&#34;テーマのインストール:06e3276c8a44b9163745f4e814816f07&#34;&gt;テーマのインストール&lt;/h2&gt;
-
-&lt;p&gt;Hugoのテーマは &lt;a href=&#34;http://themes.gohugo.io/&#34;&gt;http://themes.gohugo.io/&lt;/a&gt; 上にまとまっており、この中で気に入ったものを選択する。&lt;/p&gt;
-
-&lt;p&gt;テーマのセットアップは、作成したプロジェクト内のthemesディレクトリ内にthemeディレクトリを配置することで利用する。&lt;/p&gt;
-
-&lt;p&gt;今回、&lt;a href=&#34;https://github.com/nishanths/cocoa-hugo-theme&#34;&gt;cocoa&lt;/a&gt;を利用した。&lt;/p&gt;
-
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;git clone https://github.com/nishanths/cocoa-hugo-theme.git themes/cocoa
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h2 id=&#34;設定ファイル:06e3276c8a44b9163745f4e814816f07&#34;&gt;設定ファイル&lt;/h2&gt;
-
-&lt;p&gt;今回はcocoaを利用しているため、cocoaの&lt;a href=&#34;https://github.com/nishanths/cocoa-hugo-theme/blob/master/exampleSite/config.toml&#34;&gt;設定ファイル例&lt;/a&gt;をベースにすすめる。&lt;/p&gt;
-
-&lt;p&gt;ブログのタイトル・説明、SNS系・GAのリンクなどは設定ファイル上で編集する。
-以下、設定例。&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;baseurl&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;https://you.github.io/&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# TODO&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;builddrafts&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;canonifyurls&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;contentdir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;content&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;languageCode&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;en-US&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;layoutdir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;layouts&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;publishdir&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;public&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;author&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Arthur Dent&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;title&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Arthur Dent&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;pygmentsuseclasses&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;disqusShortname&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;cocoaexamplesite&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# TODO: optional, comment out to disable Disqus&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;pluralizelisttitles&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;false&lt;/span&gt;
-
-&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;permalinks&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;fixed&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;:title/&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;blog&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;blog/:slug/&amp;quot;&lt;/span&gt;
-
-&lt;span class=&#34;o&#34;&gt;[&lt;/span&gt;params&lt;span class=&#34;o&#34;&gt;]&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;Author&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Arthur Dent&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;CacheBuster&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;DateForm&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Jan 2, 2006&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;DateFormFull&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Mon Jan 2 2006 15:04:05 MST&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;Description&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;Don&amp;#39;t panic&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;Email&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;you@example.space&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# TODO:&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;FaviconFile&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;img/leaf.ico&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;GATracker&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;XYZ&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# TODO:&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;GitHub&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;//github.com/you&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# TODO:&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;Initials&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;ad&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# displayed on single post page; DEPRECATED in v0.3.0&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;Lang&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;en&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;LinkedIn&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;//linkedin.com/in/you&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# TODO:&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;Twitter&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;//twitter.com/you&amp;quot;&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# TODO:&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;ExtraCssFiles&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;[&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;/css/override.css&amp;quot;&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;c&#34;&gt;# relative to public directory&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;記事の作成:06e3276c8a44b9163745f4e814816f07&#34;&gt;記事の作成&lt;/h2&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;hugo new blog/example.md
-/Users/junk/blog/hugo/mysite/content/blog/example.md created
-
-&lt;span class=&#34;c&#34;&gt;# 編集&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;vim blog/example.md
-+++
-&lt;span class=&#34;nv&#34;&gt;date&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;2016-03-13T12:56:34+09:00&amp;quot;&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;draft&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;true&lt;/span&gt;
-&lt;span class=&#34;nv&#34;&gt;title&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;quot;example&amp;quot;&lt;/span&gt;
-
-+++
-
-こんにちは
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;プレビュー:06e3276c8a44b9163745f4e814816f07&#34;&gt;プレビュー&lt;/h2&gt;
-
-&lt;p&gt;プレビューは&lt;code&gt;hugo server&lt;/code&gt;コマンドで行う。
-記事の作成と編集をしただけだとdraft状態となっているため、&lt;code&gt;hugo undraft content/blog/example.md&lt;/code&gt; を行う必要がある。
-しかし、&lt;code&gt;--buildDrafts&lt;/code&gt;オプションを付与すると、draft状態の記事も表示可能となる。&lt;/p&gt;
-
-&lt;p&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;nv&#34;&gt;$ &lt;/span&gt;hugo server --buildDrafts
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;/p&gt;
-
-&lt;h2 id=&#34;公開:06e3276c8a44b9163745f4e814816f07&#34;&gt;公開&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;public/&lt;/code&gt;以下だけを公開対象にすればOK。&lt;/p&gt;
-</description>
+      <description>Hugoとテーマcocoaを用いてブログ生成を行う。
+Hugoのインストール Hugoはgo getでインストール可能。かなり簡単。
+$ go get -u -v github.com/spf13/hugo $ hugo version Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-04T02:08:16+09:00 Blogの生成 $ pwd /Users/junk/blog/hugo $ hugo new site mysite Congratulations! Your new Hugo site is created in &amp;#34;/Users/junk/blog/hugo/mysite&amp;#34;. $ ls mysite archetypes config.toml content data layouts static themes テーマのインストール Hugoのテーマは http://themes.gohugo.io/ 上にまとまっており、この中で気に入ったものを選択する。
+テーマのセットアップは、作成したプロジェクト内のthemesディレクトリ内にthemeディレクトリを配置することで利用する。
+今回、cocoaを利用した。
+$ git clone https://github.com/nishanths/cocoa-hugo-theme.git themes/cocoa 設定ファイル 今回はcocoaを利用しているため、cocoaの設定ファイル例をベースにすすめる。
+ブログのタイトル・説明、SNS系・GAのリンクなどは設定ファイル上で編集する。 以下、設定例。
+baseurl = &amp;#34;https://you.github.io/&amp;#34; # TODO builddrafts = false canonifyurls = true contentdir = &amp;#34;content&amp;#34; languageCode = &amp;#34;en-US&amp;#34; layoutdir = &amp;#34;layouts&amp;#34; publishdir = &amp;#34;public&amp;#34; author = &amp;#34;Arthur Dent&amp;#34; title = &amp;#34;Arthur Dent&amp;#34; pygmentsuseclasses = true disqusShortname = &amp;#34;cocoaexamplesite&amp;#34; # TODO: optional, comment out to disable Disqus pluralizelisttitles = false [permalinks] fixed = &amp;#34;:title/&amp;#34; blog = &amp;#34;blog/:slug/&amp;#34; [params] Author = &amp;#34;Arthur Dent&amp;#34; CacheBuster = true DateForm = &amp;#34;Jan 2, 2006&amp;#34; DateFormFull = &amp;#34;Mon Jan 2 2006 15:04:05 MST&amp;#34; Description = &amp;#34;Don&amp;#39;t panic&amp;#34; Email = &amp;#34;you@example.</description>
     </item>
     
   </channel>

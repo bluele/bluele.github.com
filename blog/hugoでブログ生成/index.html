@@ -63,7 +63,6 @@
                 <ul>
                     <a href="https://bluele.github.io/blog/"><li>Blog</li></a>
                     <a href="https://bluele.github.io/about/"><li>About</li></a>
-                    <a href="https://bluele.github.io/code/"><li>Code</li></a>
                 </ul>
             </nav>
         </div>
@@ -129,115 +128,80 @@
                 </div>
             </div>
             <div class="markdown">
-                
-
-<p><a href="https://gohugo.io/">Hugo</a>とテーマ<a href="https://github.com/nishanths/cocoa-hugo-theme">cocoa</a>を用いてブログ生成を行う。</p>
-
-<h2 id="hugoのインストール:06e3276c8a44b9163745f4e814816f07">Hugoのインストール</h2>
-
+                <p><a href="https://gohugo.io/">Hugo</a>とテーマ<a href="https://github.com/nishanths/cocoa-hugo-theme">cocoa</a>を用いてブログ生成を行う。</p>
+<h2 id="hugoのインストール">Hugoのインストール</h2>
 <p>Hugoは<code>go get</code>でインストール可能。かなり簡単。</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>go get -u -v github.com/spf13/hugo
-<span class="nv">$ </span>hugo version
-Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-04T02:08:16+09:00
-</code></pre></div>
-
-
-<h2 id="blogの生成:06e3276c8a44b9163745f4e814816f07">Blogの生成</h2>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span><span class="nb">pwd</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ go get -u -v github.com/spf13/hugo
+$ hugo version
+Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-04T02:08:16+09:00</code></pre></div>
+<h2 id="blogの生成">Blogの生成</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">pwd</span>
 /Users/junk/blog/hugo
-<span class="nv">$ </span>hugo new site mysite
-Congratulations! Your new Hugo site is created in <span class="s2">&quot;/Users/junk/blog/hugo/mysite&quot;</span>.
-<span class="nv">$ </span>ls mysite
-archetypes  config.toml content     data        layouts     static      themes
-</code></pre></div>
-
-
-<h2 id="テーマのインストール:06e3276c8a44b9163745f4e814816f07">テーマのインストール</h2>
-
+$ hugo new site mysite
+Congratulations! Your new Hugo site is created in <span class="s2">&#34;/Users/junk/blog/hugo/mysite&#34;</span>.
+$ ls mysite
+archetypes  config.toml content     data        layouts     static      themes</code></pre></div>
+<h2 id="テーマのインストール">テーマのインストール</h2>
 <p>Hugoのテーマは <a href="http://themes.gohugo.io/">http://themes.gohugo.io/</a> 上にまとまっており、この中で気に入ったものを選択する。</p>
-
 <p>テーマのセットアップは、作成したプロジェクト内のthemesディレクトリ内にthemeディレクトリを配置することで利用する。</p>
-
 <p>今回、<a href="https://github.com/nishanths/cocoa-hugo-theme">cocoa</a>を利用した。</p>
-
-<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>git clone https://github.com/nishanths/cocoa-hugo-theme.git themes/cocoa
-</code></pre></div>
-
-
-<h2 id="設定ファイル:06e3276c8a44b9163745f4e814816f07">設定ファイル</h2>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git clone https://github.com/nishanths/cocoa-hugo-theme.git themes/cocoa</code></pre></div>
+<h2 id="設定ファイル">設定ファイル</h2>
 <p>今回はcocoaを利用しているため、cocoaの<a href="https://github.com/nishanths/cocoa-hugo-theme/blob/master/exampleSite/config.toml">設定ファイル例</a>をベースにすすめる。</p>
-
 <p>ブログのタイトル・説明、SNS系・GAのリンクなどは設定ファイル上で編集する。
 以下、設定例。</p>
-
-<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">baseurl</span> <span class="o">=</span> <span class="s2">&quot;https://you.github.io/&quot;</span> <span class="c"># TODO</span>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">baseurl</span> <span class="o">=</span> <span class="s2">&#34;https://you.github.io/&#34;</span> <span class="c1"># TODO</span>
 <span class="nv">builddrafts</span> <span class="o">=</span> <span class="nb">false</span>
 <span class="nv">canonifyurls</span> <span class="o">=</span> <span class="nb">true</span>
-<span class="nv">contentdir</span> <span class="o">=</span> <span class="s2">&quot;content&quot;</span>
-<span class="nv">languageCode</span> <span class="o">=</span> <span class="s2">&quot;en-US&quot;</span>
-<span class="nv">layoutdir</span> <span class="o">=</span> <span class="s2">&quot;layouts&quot;</span>
-<span class="nv">publishdir</span> <span class="o">=</span> <span class="s2">&quot;public&quot;</span>
-<span class="nv">author</span> <span class="o">=</span> <span class="s2">&quot;Arthur Dent&quot;</span>
-<span class="nv">title</span> <span class="o">=</span> <span class="s2">&quot;Arthur Dent&quot;</span>
+<span class="nv">contentdir</span> <span class="o">=</span> <span class="s2">&#34;content&#34;</span>
+<span class="nv">languageCode</span> <span class="o">=</span> <span class="s2">&#34;en-US&#34;</span>
+<span class="nv">layoutdir</span> <span class="o">=</span> <span class="s2">&#34;layouts&#34;</span>
+<span class="nv">publishdir</span> <span class="o">=</span> <span class="s2">&#34;public&#34;</span>
+<span class="nv">author</span> <span class="o">=</span> <span class="s2">&#34;Arthur Dent&#34;</span>
+<span class="nv">title</span> <span class="o">=</span> <span class="s2">&#34;Arthur Dent&#34;</span>
 <span class="nv">pygmentsuseclasses</span> <span class="o">=</span> <span class="nb">true</span>
-<span class="nv">disqusShortname</span> <span class="o">=</span> <span class="s2">&quot;cocoaexamplesite&quot;</span> <span class="c"># TODO: optional, comment out to disable Disqus</span>
+<span class="nv">disqusShortname</span> <span class="o">=</span> <span class="s2">&#34;cocoaexamplesite&#34;</span> <span class="c1"># TODO: optional, comment out to disable Disqus</span>
 <span class="nv">pluralizelisttitles</span> <span class="o">=</span> <span class="nb">false</span>
 
 <span class="o">[</span>permalinks<span class="o">]</span>
-<span class="nv">fixed</span> <span class="o">=</span> <span class="s2">&quot;:title/&quot;</span>
-<span class="nv">blog</span> <span class="o">=</span> <span class="s2">&quot;blog/:slug/&quot;</span>
+<span class="nv">fixed</span> <span class="o">=</span> <span class="s2">&#34;:title/&#34;</span>
+<span class="nv">blog</span> <span class="o">=</span> <span class="s2">&#34;blog/:slug/&#34;</span>
 
 <span class="o">[</span>params<span class="o">]</span>
-<span class="nv">Author</span> <span class="o">=</span> <span class="s2">&quot;Arthur Dent&quot;</span>
+<span class="nv">Author</span> <span class="o">=</span> <span class="s2">&#34;Arthur Dent&#34;</span>
 <span class="nv">CacheBuster</span> <span class="o">=</span> <span class="nb">true</span>
-<span class="nv">DateForm</span> <span class="o">=</span> <span class="s2">&quot;Jan 2, 2006&quot;</span>
-<span class="nv">DateFormFull</span> <span class="o">=</span> <span class="s2">&quot;Mon Jan 2 2006 15:04:05 MST&quot;</span>
-<span class="nv">Description</span> <span class="o">=</span> <span class="s2">&quot;Don&#39;t panic&quot;</span>
-<span class="nv">Email</span> <span class="o">=</span> <span class="s2">&quot;you@example.space&quot;</span> <span class="c"># TODO:</span>
-<span class="nv">FaviconFile</span> <span class="o">=</span> <span class="s2">&quot;img/leaf.ico&quot;</span>
-<span class="nv">GATracker</span> <span class="o">=</span> <span class="s2">&quot;XYZ&quot;</span> <span class="c"># TODO:</span>
-<span class="nv">GitHub</span> <span class="o">=</span> <span class="s2">&quot;//github.com/you&quot;</span> <span class="c"># TODO:</span>
-<span class="nv">Initials</span> <span class="o">=</span> <span class="s2">&quot;ad&quot;</span> <span class="c"># displayed on single post page; DEPRECATED in v0.3.0</span>
-<span class="nv">Lang</span> <span class="o">=</span> <span class="s2">&quot;en&quot;</span>
-<span class="nv">LinkedIn</span> <span class="o">=</span> <span class="s2">&quot;//linkedin.com/in/you&quot;</span> <span class="c"># TODO:</span>
-<span class="nv">Twitter</span> <span class="o">=</span> <span class="s2">&quot;//twitter.com/you&quot;</span> <span class="c"># TODO:</span>
-<span class="nv">ExtraCssFiles</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&quot;/css/override.css&quot;</span> <span class="o">]</span> <span class="c"># relative to public directory</span>
-</code></pre></div>
-</p>
-
-<h2 id="記事の作成:06e3276c8a44b9163745f4e814816f07">記事の作成</h2>
-
-<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>hugo new blog/example.md
+<span class="nv">DateForm</span> <span class="o">=</span> <span class="s2">&#34;Jan 2, 2006&#34;</span>
+<span class="nv">DateFormFull</span> <span class="o">=</span> <span class="s2">&#34;Mon Jan 2 2006 15:04:05 MST&#34;</span>
+<span class="nv">Description</span> <span class="o">=</span> <span class="s2">&#34;Don&#39;t panic&#34;</span>
+<span class="nv">Email</span> <span class="o">=</span> <span class="s2">&#34;you@example.space&#34;</span> <span class="c1"># TODO:</span>
+<span class="nv">FaviconFile</span> <span class="o">=</span> <span class="s2">&#34;img/leaf.ico&#34;</span>
+<span class="nv">GATracker</span> <span class="o">=</span> <span class="s2">&#34;XYZ&#34;</span> <span class="c1"># TODO:</span>
+<span class="nv">GitHub</span> <span class="o">=</span> <span class="s2">&#34;//github.com/you&#34;</span> <span class="c1"># TODO:</span>
+<span class="nv">Initials</span> <span class="o">=</span> <span class="s2">&#34;ad&#34;</span> <span class="c1"># displayed on single post page; DEPRECATED in v0.3.0</span>
+<span class="nv">Lang</span> <span class="o">=</span> <span class="s2">&#34;en&#34;</span>
+<span class="nv">LinkedIn</span> <span class="o">=</span> <span class="s2">&#34;//linkedin.com/in/you&#34;</span> <span class="c1"># TODO:</span>
+<span class="nv">Twitter</span> <span class="o">=</span> <span class="s2">&#34;//twitter.com/you&#34;</span> <span class="c1"># TODO:</span>
+<span class="nv">ExtraCssFiles</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&#34;/css/override.css&#34;</span> <span class="o">]</span> <span class="c1"># relative to public directory</span></code></pre></div>
+<h2 id="記事の作成">記事の作成</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo new blog/example.md
 /Users/junk/blog/hugo/mysite/content/blog/example.md created
 
-<span class="c"># 編集</span>
-<span class="nv">$ </span>vim blog/example.md
+<span class="c1"># 編集</span>
+$ vim blog/example.md
 +++
-<span class="nv">date</span> <span class="o">=</span> <span class="s2">&quot;2016-03-13T12:56:34+09:00&quot;</span>
+<span class="nv">date</span> <span class="o">=</span> <span class="s2">&#34;2016-03-13T12:56:34+09:00&#34;</span>
 <span class="nv">draft</span> <span class="o">=</span> <span class="nb">true</span>
-<span class="nv">title</span> <span class="o">=</span> <span class="s2">&quot;example&quot;</span>
+<span class="nv">title</span> <span class="o">=</span> <span class="s2">&#34;example&#34;</span>
 
 +++
 
-こんにちは
-</code></pre></div>
-</p>
-
-<h2 id="プレビュー:06e3276c8a44b9163745f4e814816f07">プレビュー</h2>
-
+こんにちは</code></pre></div>
+<h2 id="プレビュー">プレビュー</h2>
 <p>プレビューは<code>hugo server</code>コマンドで行う。
 記事の作成と編集をしただけだとdraft状態となっているため、<code>hugo undraft content/blog/example.md</code> を行う必要がある。
 しかし、<code>--buildDrafts</code>オプションを付与すると、draft状態の記事も表示可能となる。</p>
-
-<p><div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>hugo server --buildDrafts
-</code></pre></div>
-</p>
-
-<h2 id="公開:06e3276c8a44b9163745f4e814816f07">公開</h2>
-
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo server --buildDrafts</code></pre></div>
+<h2 id="公開">公開</h2>
 <p><code>public/</code>以下だけを公開対象にすればOK。</p>
 
                 <br>
