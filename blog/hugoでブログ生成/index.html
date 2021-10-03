@@ -131,11 +131,11 @@
                 <p><a href="https://gohugo.io/">Hugo</a>とテーマ<a href="https://github.com/nishanths/cocoa-hugo-theme">cocoa</a>を用いてブログ生成を行う。</p>
 <h2 id="hugoのインストール">Hugoのインストール</h2>
 <p>Hugoは<code>go get</code>でインストール可能。かなり簡単。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ go get -u -v github.com/spf13/hugo
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ go get -u -v github.com/spf13/hugo
 $ hugo version
 Hugo Static Site Generator v0.16-DEV BuildDate: 2016-01-04T02:08:16+09:00</code></pre></div>
 <h2 id="blogの生成">Blogの生成</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">pwd</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">pwd</span>
 /Users/junk/blog/hugo
 $ hugo new site mysite
 Congratulations! Your new Hugo site is created in <span class="s2">&#34;/Users/junk/blog/hugo/mysite&#34;</span>.
@@ -145,12 +145,12 @@ archetypes  config.toml content     data        layouts     static      themes</
 <p>Hugoのテーマは <a href="http://themes.gohugo.io/">http://themes.gohugo.io/</a> 上にまとまっており、この中で気に入ったものを選択する。</p>
 <p>テーマのセットアップは、作成したプロジェクト内のthemesディレクトリ内にthemeディレクトリを配置することで利用する。</p>
 <p>今回、<a href="https://github.com/nishanths/cocoa-hugo-theme">cocoa</a>を利用した。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ git clone https://github.com/nishanths/cocoa-hugo-theme.git themes/cocoa</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ git clone https://github.com/nishanths/cocoa-hugo-theme.git themes/cocoa</code></pre></div>
 <h2 id="設定ファイル">設定ファイル</h2>
 <p>今回はcocoaを利用しているため、cocoaの<a href="https://github.com/nishanths/cocoa-hugo-theme/blob/master/exampleSite/config.toml">設定ファイル例</a>をベースにすすめる。</p>
 <p>ブログのタイトル・説明、SNS系・GAのリンクなどは設定ファイル上で編集する。
 以下、設定例。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">baseurl</span> <span class="o">=</span> <span class="s2">&#34;https://you.github.io/&#34;</span> <span class="c1"># TODO</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">baseurl</span> <span class="o">=</span> <span class="s2">&#34;https://you.github.io/&#34;</span> <span class="c1"># TODO</span>
 <span class="nv">builddrafts</span> <span class="o">=</span> <span class="nb">false</span>
 <span class="nv">canonifyurls</span> <span class="o">=</span> <span class="nb">true</span>
 <span class="nv">contentdir</span> <span class="o">=</span> <span class="s2">&#34;content&#34;</span>
@@ -183,7 +183,7 @@ archetypes  config.toml content     data        layouts     static      themes</
 <span class="nv">Twitter</span> <span class="o">=</span> <span class="s2">&#34;//twitter.com/you&#34;</span> <span class="c1"># TODO:</span>
 <span class="nv">ExtraCssFiles</span> <span class="o">=</span> <span class="o">[</span> <span class="s2">&#34;/css/override.css&#34;</span> <span class="o">]</span> <span class="c1"># relative to public directory</span></code></pre></div>
 <h2 id="記事の作成">記事の作成</h2>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo new blog/example.md
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hugo new blog/example.md
 /Users/junk/blog/hugo/mysite/content/blog/example.md created
 
 <span class="c1"># 編集</span>
@@ -200,7 +200,7 @@ $ vim blog/example.md
 <p>プレビューは<code>hugo server</code>コマンドで行う。
 記事の作成と編集をしただけだとdraft状態となっているため、<code>hugo undraft content/blog/example.md</code> を行う必要がある。
 しかし、<code>--buildDrafts</code>オプションを付与すると、draft状態の記事も表示可能となる。</p>
-<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">$ hugo server --buildDrafts</code></pre></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ hugo server --buildDrafts</code></pre></div>
 <h2 id="公開">公開</h2>
 <p><code>public/</code>以下だけを公開対象にすればOK。</p>
 
